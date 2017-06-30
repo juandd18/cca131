@@ -1,0 +1,36 @@
+
+
+sudo useradd  juan
+#add password to user juan
+sudo passwd juan
+
+#create a group
+groupadd supergroup
+#assaign a group to user juan
+usermod -g supergroup juan
+
+#the folder owner is hdfs:supergroup
+sudo -su hfds hdfs dfs -mkdir /work
+
+#change owner and permissions of the folder
+sudo -su hdfs hdfs dfs -chown juan:supergroup /work  #being root
+sudo -su juan
+hdfs dfs -chmod 755 /work
+
+//edits files and fsimages
+
+#go to /dfs/nn/current to see the files edits files of the namenode
+cd /dfs/nn/current
+ls -ltr
+#go to /dfs/snn/current to see the files edits files of the Secundary namenode
+cd /dfs/snn/current
+ls -ltr
+
+# in order to generate a new fsimage and edit log 
+#first get into safe mode
+sudo -u hdfs hdfs dfsadmin -safemode enter
+#this line create the new edit log and fsimage
+sudo -u hdfs hdfs dfsadmin -saveNamespace
+#leave the safemode
+sudo -u hdfs hdfs dfsadmin -safemode leave
+
