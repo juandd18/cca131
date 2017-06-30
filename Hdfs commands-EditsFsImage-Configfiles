@@ -34,3 +34,21 @@ sudo -u hdfs hdfs dfsadmin -saveNamespace
 #leave the safemode
 sudo -u hdfs hdfs dfsadmin -safemode leave
 
+###find the config files in the cluster
+#go to the cluster where is the namenode service
+find / -name "core-site.xml"
+#go to 
+cd /var/run/cloudera-scm-agent/process/  #you will see varios namenode, there are various because
+# in this way cloudera handle rollbacks 
+
+
+###find log files
+cd /var/log/hadoop-hdfs
+
+
+
+
+
+
+
+
