@@ -1,0 +1,13 @@
+
+##delete a node. you should first Decomission a node
+Click on the Actions for Selected button and click on Decommission from the menu as shown in the following screenshot:
+
+# stop the cloudera agent in the node to be deleted
+service cloudera-scm-agent stop
+
+##Copy data to the cluster
+hadoop distcp hdfs://namenode1/src hdfs://namenode2/dest
+
+
+
+
