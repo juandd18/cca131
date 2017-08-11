@@ -1,4 +1,8 @@
 
+scp -r /usr/java/ root@nodetwo.juandavid.com:/usr/java/
+scp -r /usr/java/ root@nodethree.juandavid.com:/usr/java/
+scp -r /usr/java/ root@nodefour.juandavid.com:/usr/java/
+
 
 Step 3: Now download the required parcels in this directory.
 Go to this URL to check all the parcels
